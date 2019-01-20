@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Contact>
+@{
+    ViewBag.Title = "MessageBoard";
+    
+}
+
+
+
+<div class="messageboard">
+
+    @foreach (var contact in Model)
+    {
+        <div>
+            <h3>@contact.Subject</h3>
+            <ul>
+                <li>@contact.ContactID</li>
+                <li>@contact.Name</li>
+                <li>@contact.Message</li>
+                <li>@contact.Mail</li>
+            </ul>
+
+            <div class="Buttons">
+                <button>@Html.ActionLink("Edit", "EditMessage", new { id = contact.ContactID })</button>
+                <button>@Html.ActionLink("Delete", "DdeleteMessage", new { id = contact.ContactID })</button>
+            </div>
+
+        </div>
+    }
+</div>

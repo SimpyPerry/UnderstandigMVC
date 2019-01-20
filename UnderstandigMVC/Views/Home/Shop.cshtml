@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Product>
+
+
+<h1>Shop</h1>
+<p>Count: @Model.Count()</p>
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div>
+            <img src="~/images/Perry.png" />
+            <h3>@product.Category</h3>
+            <ul>
+                <li>Artist: @product.ArtistId</li>
+                <li>Title: @product.Title</li>
+                <li>beskrivelse: @product.ArtistDeath</li>
+            </ul>
+            <button id="buyButton">Køb</button>
+        </div>
+
+    }
+</div>

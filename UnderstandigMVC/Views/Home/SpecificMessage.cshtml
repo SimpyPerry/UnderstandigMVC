@@ -1,0 +1,25 @@
+﻿@model Contact
+@{
+    ViewBag.Title = "SpecificMessage";
+
+}
+
+
+
+
+ 
+    <div>
+        
+        <h3>@Model.Subject</h3>
+        <ul>
+            <li>@Model.Name</li>
+            <li>@Model.Message</li>
+            <li>@Model.Mail</li>
+        </ul>
+    </div>
+ <div>
+     <a asp-action="Index">Tilbage til start</a>
+ </div>
+
+
+

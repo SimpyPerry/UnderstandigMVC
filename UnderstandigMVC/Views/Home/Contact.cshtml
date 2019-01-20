@@ -1,0 +1,35 @@
+﻿@model ContactViewModel
+@{ 
+    ViewBag.Title = "Contact us";
+}
+
+
+
+@* method post fortæller den at den skal bruge HttpPost for contact i controlleren *@
+<form method="post">
+    @* Denne viser hvilke fejl der blevet i forhold til modelstaten på siden *@
+    <div asp-validation-summary="All"></div>
+    @* input skal have et name for at forbinde dataen de skal sende *@
+    @* Her bruges asp-for i stedet for at sikre de har samme format som i model *@
+    <label asp-for="Name">Your Name:</label>
+    <br />
+    <input asp-for="Name" />
+    
+    <br />
+    <label asp-for="Mail">E-mail:</label>
+    <br />
+    <input type="email" asp-for="Mail" />
+   
+    <br />
+    <label asp-for="Subject">Subject:</label>
+    <br />
+    <input asp-for="Subject" />
+    
+    <br />
+    <label asp-for="Message">Message:</label>
+    <br />
+    <textarea rows="4" asp-for="Message"></textarea>
+    
+    <br />
+    <input type="submit" value="Send Message"  />
+</form>

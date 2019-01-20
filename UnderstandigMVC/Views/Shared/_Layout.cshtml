@@ -4,11 +4,41 @@
     <meta charset="utf-8" />
     <title>MVC: @ViewBag.Title</title>
     <!--Skal være uden wwwroot delen hvis du trækker link direkte-->
+    
     <link href="~/css/site.css" rel="stylesheet" />
 
 </head>
 <body>
-    <header>Welcome to this site</header>
+    <header><h1>Welcome to this site</h1>
+        <menu>
+            <ul>
+                @* Denne gør så man kun kan se login hvis man ikke er logget ind *@
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a asp-controller="Account" asp-action="Logout">Log ud!</a></li>
+                }
+                else
+                {
+                    <li><a asp-controller="Account" asp-action="Register">Opret Bruger</a></li>
+                    <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+                }
+            </ul>
+            <br />
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                <li><a asp-controller="Home" asp-action="About">About</a></li>
+                <li><a asp-controller="Home" asp-action="Shop">Shop</a></li>
+                <li><a asp-controller="Home" asp-action="MessageBoard">Messageboard</a></li>
+
+
+                @*Direkte link*@
+                @*<li><a href="/">Home</a></li>
+        <li><a href="/home/contact">Contact</a></li>
+        <li><a href="/home/about">About</a></li>*@
+            </ul>
+        </menu>
+    </header>
     <section>
         <h2>@ViewBag.Title</h2>
         @RenderBody()
@@ -16,6 +46,8 @@
     <footer>Dette er footeren</footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    
     <script src="~/js/site.js"></script>
+    
 </body>
 </html>
